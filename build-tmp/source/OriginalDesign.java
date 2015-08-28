@@ -1,17 +1,33 @@
-void setup()
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class OriginalDesign extends PApplet {
+
+public void setup()
 {
  size(400,400);
  //int noseLength = 375;
 }
 int noseLength = 375;
-void draw()
+public void draw()
 {
   face();
   hair();
   clothes();
 }
 
-void hair(){
+public void hair(){
 	 //hair
     fill(10, 2, 2);
     ellipse(84,66,71,60);
@@ -27,7 +43,7 @@ void hair(){
     quad(-6,53,0,37,85,9,96,18);
 }
 
-void face(){
+public void face(){
 	 //Nose
     fill(250, 241, 182);
     bezier(115,183,83,118,noseLength,184,135,223);
@@ -71,7 +87,7 @@ void face(){
 
 }
 
-void clothes(){
+public void clothes(){
 	//SHIRT
 	stroke(0,0,0);
     fill(255, 255, 255);
@@ -83,7 +99,7 @@ void clothes(){
     ellipse(92,393,36,34);
 }
 
-void mousePressed(){
+public void mousePressed(){
 
 	noseLength = noseLength + 1;
 	/*
@@ -96,3 +112,12 @@ void mousePressed(){
 	*/
 }
 
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "OriginalDesign" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
+}
